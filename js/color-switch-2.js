@@ -16,21 +16,24 @@ const refs = {
 refs.startBtn.addEventListener('click', handleOnStartBtnClick);
 refs.stopBtn.addEventListener('click', handleOnStopBtnClick);
 
-let id = null;
-console.log('id вначале: ', id);
+let timerId = null;
+
+console.log('timerId вначале: ', timerId);
 
 function handleOnStartBtnClick() {
-  id = setInterval(setBodyBackgroundColor, 1000);
-  console.log('id после нажатия на кнопку запуска: ', id);
+  timerId = setInterval(setBodyBackgroundColor, 1000);
+
+  console.log('timerId после нажатия на кнопку запуска: ', timerId);
 
   refs.startBtn.setAttribute('disabled', true);
   refs.stopBtn.removeAttribute('disabled');
 }
 
 function handleOnStopBtnClick() {
-  clearInterval(id);
-  id = null;
-  console.log('id после нажатия на кнопку остановки: ', id);
+  clearInterval(timerId);
+  timerId = null;
+
+  console.log('timerId после нажатия на кнопку остановки: ', timerId);
 
   refs.startBtn.removeAttribute('disabled');
   refs.stopBtn.setAttribute('disabled', true);
